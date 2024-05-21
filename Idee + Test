@@ -1,0 +1,19 @@
+# Pfad und Name der Logdatei
+$logFilePath = "C:\Path\To\Log\my_log_file.txt"
+
+# Inhalt der Logdatei
+$logContent = @"
+Dies ist eine einfache Logdatei.
+Sie wurde erstellt, um bestimmte Informationen zu speichern.
+PowerShell ist großartig!
+"@
+
+# Erstellen und Schreiben des Inhalts in die Logdatei
+$logContent | Out-File -FilePath $logFilePath
+
+# Option: Überprüfen, ob die Logdatei erfolgreich erstellt wurde
+if (Test-Path -Path $logFilePath) {
+    Write-Output "Logdatei erfolgreich erstellt: $logFilePath"
+} else {
+    Write-Output "Fehler beim Erstellen der Logdatei."
+}
